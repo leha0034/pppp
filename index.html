@@ -71,7 +71,8 @@ h3{font-size:15px;margin:14px 0 8px}
 .project-date-wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
 .project-date-wrap input{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%}
 .project-form #projectname,.project-form #projectdifficulty{display:block;width:100%;min-width:0;height:38px}
-.project-form #projectdeadline,.project-form button{height:40px;min-height:40px}
+.project-form #projectdeadline{width:calc(100% - 10px);height:27px;min-height:27px}
+.project-form button{height:40px;min-height:40px}
 .project-date-wrap input:invalid{color:transparent}
 .project-date-hint{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#98a3b4;font-size:14px;pointer-events:none}
 .project-date-wrap input:valid+.project-date-hint{display:none}
@@ -80,7 +81,7 @@ h3{font-size:15px;margin:14px 0 8px}
 #editdialog #editform{display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
 #editdialog #edittext,#editdialog #editstart,#editdialog #editend{display:block;box-sizing:border-box;min-width:0;max-width:100%}
 #editdialog #edittext{width:100%}
-#editdialog #editstart,#editdialog #editend{justify-self:center;width:50%;height:32px;padding:3px 6px}
+#editdialog #editstart,#editdialog #editend{justify-self:stretch;width:100%;height:32px;padding:3px 6px}
 .project-item{--remaining:100%;position:relative;border:6px solid transparent;border-radius:12px;padding:12px;margin:24px 0;background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from -90deg,#4f78bd 0 var(--remaining),#e4e9f1 var(--remaining) 100%) border-box;outline:6px solid var(--difficulty-color);outline-offset:3px}
 .project-item-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .project-item-header strong{overflow-wrap:anywhere}
@@ -145,6 +146,7 @@ label{display:block;margin:10px 0 5px;font-size:13px}
 .delete-record{border:0;background:transparent;padding:3px;color:#a84040}
 dialog{border:0;border-radius:18px;padding:22px;width:min(560px,calc(100% - 26px));max-height:88vh;overflow:auto;color:#233047;box-shadow:0 20px 80px #182a4440}
 dialog::backdrop{background:#182a4470}
+#notesdialog #note{display:block;margin-top:8px}
 #status{font-size:12px;color:#72819b}
 .note-saved{animation:noteSaved .55s ease}
 .suggest-complete{background:#dcebd5;color:#456b48;border-color:#c5dcc0}
