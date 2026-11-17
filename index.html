@@ -70,16 +70,17 @@ h3{font-size:15px;margin:14px 0 8px}
 .project-form>*{min-width:0}
 .project-date-wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
 .project-date-wrap input{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%}
-.project-form #projectname,.project-form #projectdeadline,.project-form #projectdifficulty{display:block;width:100%;min-width:0;height:38px}
+.project-form #projectname,.project-form #projectdifficulty{display:block;width:100%;min-width:0;height:38px}
+.project-form #projectdeadline,.project-form button{height:40px;min-height:40px}
 .project-date-wrap input:invalid{color:transparent}
 .project-date-hint{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#98a3b4;font-size:14px;pointer-events:none}
 .project-date-wrap input:valid+.project-date-hint{display:none}
 .project-form select{width:100%}
 #editdialog{width:min(560px,calc(100vw - 26px))}
 #editdialog #editform{display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0}
-#editdialog #edittext,#editdialog #editstart,#editdialog #editend{display:block;box-sizing:border-box;min-width:0;max-width:100%;height:38px}
+#editdialog #edittext,#editdialog #editstart,#editdialog #editend{display:block;box-sizing:border-box;min-width:0;max-width:100%}
 #editdialog #edittext{width:100%}
-#editdialog #editstart,#editdialog #editend{width:50%}
+#editdialog #editstart,#editdialog #editend{justify-self:center;width:50%;height:32px;padding:3px 6px}
 .project-item{--remaining:100%;position:relative;border:6px solid transparent;border-radius:12px;padding:12px;margin:24px 0;background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from -90deg,#4f78bd 0 var(--remaining),#e4e9f1 var(--remaining) 100%) border-box;outline:6px solid var(--difficulty-color);outline-offset:3px}
 .project-item-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .project-item-header strong{overflow-wrap:anywhere}
@@ -1776,17 +1777,17 @@ $('reset').onclick=()=>{
    ФИНАНСЫ
    ====================================================== */
 const expenseGroups=[
- ['Транспорт',['Такси','Автобус','Метро','Другое']],
- ['Здоровье',['Врач','Спец уход','Экст. необходимость','Аптека','Другое']],
- ['Ежедневные',['Продукты','Кафе','Рестораны','Цветы','Красота','Одежда','Подписки','Другое']],
- ['Развлечения',['Хобби','Кино','Театры','Активный отдых','Фотография','Спорт','Концерты','Другое']],
- ['Подарки',['Подарки','Благотворительность','Другое']],
- ['Дом',['Ипотека/Аренда','Улучшение','Переезд','Другое']],
- ['Путешествия',['Отель/квартира','Развлечение','Билеты','Еда','Мероприятия','Другое']],
- ['Ком услуги',['Телефон','Интернет','Другое']],
- ['Инвестиции',['Вложения','Другое']]
+ ['Транспорт',['Такси','Автобус','Метро']],
+ ['Здоровье',['Врач','Спец уход','Экст. необходимость','Аптека']],
+ ['Ежедневные',['Продукты','Кафе','Рестораны','Цветы','Красота','Одежда','Подписки']],
+ ['Развлечения',['Хобби','Кино','Театры','Активный отдых','Фотография','Спорт','Концерты']],
+ ['Подарки',['Подарки','Благотворительность']],
+ ['Дом',['Ипотека/Аренда','Улучшение','Переезд']],
+ ['Путешествия',['Отель/квартира','Развлечение','Билеты','Еда','Мероприятия']],
+ ['Ком услуги',['Телефон','Интернет']],
+ ['Инвестиции',['Вложения']]
 ];
-const incomeNames=['ЗП','Доп доход','Премия','Подарок','Другое'];
+const incomeNames=['ЗП','Доп доход','Премия','Подарок'];
 
 function monthRows(m){
  if(!state.finances[m]){
@@ -2495,18 +2496,18 @@ $('periodreportdownload').onclick=()=>{
 $('periodreportclose').onclick=()=>$('periodreportdialog').close();
 $('periodreportcancel').onclick=()=>$('periodreportdialog').close();
 const longGroups=[
- ['Формирование капитала',['Наличные','Вклад','Фонд','Облигации','Акции','ПИФы','ВДО','Крипта','Драг металлы','Другое']],
+ ['Формирование капитала',['Наличные','Вклад','Фонд','Облигации','Акции','ПИФы','ВДО','Крипта','Драг металлы']],
  ['Долги',['Налоги','Другое']],
- ['Развлечения',['Кино','Театр','Концерты','Хобби','Активный отдых','Спорт','Игры','Фотография','Другое']],
- ['Ежедневные',['Продукты','Кафе','Рестораны','Красота','Цветы','Одежда','Подписки','Другое']],
- ['Подарки',['Подарки','Благотворительность','Другое']],
- ['Здоровье',['Аптека','Врачи','Экстр ситуация','Спец уход','Другое']],
- ['Дом',['Аренда/Ипотека','Улучшения','Переезд','Другое']],
+ ['Развлечения',['Кино','Театр','Концерты','Хобби','Активный отдых','Спорт','Игры','Фотография']],
+ ['Ежедневные',['Продукты','Кафе','Рестораны','Красота','Цветы','Одежда','Подписки']],
+ ['Подарки',['Подарки','Благотворительность']],
+ ['Здоровье',['Аптека','Врачи','Экстр ситуация','Спец уход']],
+ ['Дом',['Аренда/Ипотека','Улучшения','Переезд']],
  ['Транспорт',['Автобус','Метро','Такси','Другое']],
- ['Путешествия',['Билеты','Отель/Квартира','Еда','Развлечения','Транспорт','Мероприятия','Другое']],
- ['Ком услуги',['Телефон','Интернет','Другое']],
+ ['Путешествия',['Билеты','Отель/Квартира','Еда','Развлечения','Транспорт','Мероприятия']],
+ ['Ком услуги',['Телефон','Интернет']],
  ['Инвестиции',['Вложения']],
- ['Доход',['ЗП','Чай','Подарок','В долг','Премия','Проценты от вклада','Доп доход','Другое']]
+ ['Доход',['ЗП','Чай','Подарок','В долг','Премия','Проценты от вклада','Доп доход',]]
 ];
 function monthAmount(group,name,m){
  const d=state.finances[m];if(!d)return 0;
